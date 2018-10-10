@@ -17,6 +17,7 @@ package main
 
 import (
 	"bufio"
+	"compress/bzip2"
 	"compress/gzip"
 	"errors"
 	"fmt"
@@ -424,6 +425,8 @@ func processFileTargets() {
 				infile.Seek(0, 0)
 				reader = infile
 			}
+		} else if options.Zip && strings.HasSuffix(filepath, ".bz2") {
+			reader = bzip2.NewReader(infile)
 		} else if infile == os.Stdin && options.Multiline {
 			reader = nbreader.NewNBReader(infile, InputBlockSize,
 				nbreader.ChunkTimeout(MultilinePipeChunkTimeout), nbreader.Timeout(MultilinePipeTimeout))

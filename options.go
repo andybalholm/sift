@@ -107,8 +107,8 @@ type Options struct {
 	Version             func() `short:"V" long:"version" description:"show version and license information" json:"-"`
 	WordRegexp          bool   `short:"w" long:"word-regexp" description:"only match on ASCII word boundaries"`
 	WriteConfig         bool   `long:"write-config" description:"save config for loaded configs + given command line arguments" json:"-"`
-	Zip                 bool   `short:"z" long:"zip" description:"search content of compressed .gz files (default: off)"`
-	NoZip               func() `short:"Z" long:"no-zip" description:"do not search content of compressed .gz files" json:"-"`
+	Zip                 bool   `short:"z" long:"zip" description:"search content of compressed .gz and .bz2 files (default: off)"`
+	NoZip               func() `short:"Z" long:"no-zip" description:"do not search content of compressed .gz and .bz2 files" json:"-"`
 
 	FileConditions struct {
 		FileMatches     []string `long:"file-matches" description:"only show matches if file also matches PATTERN" value-name:"PATTERN"`
